@@ -44,12 +44,12 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input  type="text" class="form-control text-center" value="1">
-                           <button  class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="secondInput"  type="text" class="form-control text-center" value="1">
+                           <button id="plus"  class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$ <span id="currentAmountOne">59</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -82,33 +82,53 @@
      let btnAdd=document.getElementById("addValue");
      let btnSubtract=document.getElementById("subtract");
      let input=document.getElementById("input");
-     
+
      btnAdd.addEventListener("click",function(){
 
         input.value=parseInt(input.value)+1;
         const numberOfMobile=input.value;
         const price =1219;
-        addPlusBtn(numberOfMobile,price);
+        addPlusBtn(numberOfMobile,price,"currentAmount");
      })
 
      btnSubtract.addEventListener("click",function(){
         input.value=parseInt(input.value)-1;
         const numberOfMobile=input.value;
         const price=1219;
-        addMinusBtn(numberOfMobile,price);
+        addMinusBtn(numberOfMobile,price,"currentAmount");
      })
 
-     function addPlusBtn(numberOfMobile,price)
+     let addBtn=document.getElementById("plus");
+     let subtractBtn=document.getElementById("minus");
+      let secondInput=document.getElementById("secondInput");
+
+     addBtn.addEventListener("click",function(){
+
+         secondInput.value=parseInt(secondInput.value)+1;
+         const numberOfMobile=secondInput.value;
+         const price =59;
+         addPlusBtn(numberOfMobile,price,"currentAmountOne");
+      })
+
+      subtractBtn.addEventListener("click",function(){
+        secondInput.value=parseInt(secondInput.value)-1;
+        const numberOfMobile=secondInput.value;
+        const price=59;
+        addMinusBtn(numberOfMobile,price,"currentAmountOne");
+     })
+
+
+     function addPlusBtn(numberOfMobile,price,id)
      {
          const totalAmount=price*numberOfMobile;
-         document.getElementById("currentAmount").innerText=totalAmount;
+         document.getElementById(id).innerText=totalAmount;
      }
       
-     function addMinusBtn(numberOfMobile,price)
+     function addMinusBtn(numberOfMobile,price,id)
      {
         const totalAmount=price*numberOfMobile;
         const subtractAmount=totalAmount-(price*numberOfMobile);
-        document.getElementById("currentAmount").innerText=totalAmount;
+        document.getElementById(id).innerText=totalAmount;
      }
   
    </script>
