@@ -125,9 +125,9 @@
 
      function updateMobilePrice(numberOfMobile,price,id)
      {
-         const totalAmount=price*numberOfMobile;
+          const totalAmount=price*numberOfMobile;
      
-         document.getElementById(id).innerText=totalAmount;
+          document.getElementById(id).innerText=totalAmount;
  
           let subTotalBalance=document.getElementById("subTotal").innerText;
           let subTotalNumber=parseFloat(subTotalBalance);
@@ -135,17 +135,17 @@
           document.getElementById("subTotal").innerText=subTotalNumber;
 
      }
-     
+
       
      function addMinusBtn(numberOfMobile,price,id)
      {
-        const totalAmount=price*numberOfMobile;
+          const totalAmount=price*numberOfMobile;
       
-        document.getElementById(id).innerText=totalAmount;
-        let subTotalBalance=document.getElementById("subTotal").innerText;
+          document.getElementById(id).innerText=totalAmount;
+          let subTotalBalance=document.getElementById("subTotal").innerText;
           let subTotalNumber=parseFloat(subTotalBalance);
-           subTotalNumber-=price;
-         document.getElementById("subTotal").innerText=subTotalNumber;
+          subTotalNumber-=price;
+          document.getElementById("subTotal").innerText=subTotalNumber;
      }
      
   
